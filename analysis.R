@@ -236,3 +236,20 @@ ggplot(top_beaches,
   ggtitle("Top 10 Beaches by Unsafe Enterococcus Levels")
 
 ggsave("top_10_beaches_unsafe.png", width=8, height=5, dpi=300)
+
+beach_data <- read.csv("nj_beach_water_quality_2021_2026.csv")
+install.packages("tidyverse")
+library(tidyverse)
+
+
+ggplot(clean_data, aes(x = Result_Measure)) +
+  geom_histogram(bins = 50) +
+  labs(title = "Distribution of Enterococcus Levels")
+
+
+
+ggplot(clean_data, aes(y = Result_Measure)) +
+  geom_boxplot()
+ggsave("boxplot_enterococcus_levels.png", width=8, height=5)
+
+ggsave("histogram_enterococcus_distribution.png", width=8, height=5)
